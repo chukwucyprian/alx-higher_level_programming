@@ -4,8 +4,8 @@ def safe_print_list_integers(my_list=[], x=0):
     try:
         for element in my_list:
             try:
-                formatted_value = "{:d}".format(element)
-                print(formatted_value, end=' ')
+                formatted_value = ("{:d}".format(element))
+                print(formatted_value, end='')
                 count += 1
                 if count == x:
                     break
