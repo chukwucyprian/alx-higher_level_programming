@@ -10,10 +10,8 @@ def safe_print_division(a, b):
     Returns:
         float: The result of the division, if successful.
         None: If an exception occurs during the division.
-
-"""
+    """
     result = None
-
 
     try:
         result = a / b
