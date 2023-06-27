@@ -10,10 +10,8 @@
 void print_python_list(PyObject *p)
 {
 	Py_ssize_t size, i;
-	PyObject *item;
-	const char *type_name;
 
-	if (!PyList_Check(p))
+	if (!p || !PyList_Check(p))
 	{
 		printf("[ERROR] Invalid PyListObject\n");
 		return;
@@ -26,12 +24,13 @@ void print_python_list(PyObject *p)
 
 	for (i = 0; i < size; i++)
 	{
-		item = PyList_GetItem(p, i);
-		type_name = Py_TYPE(item)->tp_name;
+		PyObject *item = PyList_GetItem(p, i);
+		const char *type_name = item->ob_type->tp_name;
 		printf("Element %ld: %s\n", i, type_name);
 	}
 }
-/**
+
+/** 
  * print_python_bytes - Prints information about a Python bytes object
  * @p: Pointer to the Python object
  *
@@ -40,26 +39,31 @@ void print_python_list(PyObject *p)
 void print_python_bytes(PyObject *p)
 {
 	Py_ssize_t size, i;
-	unsigned char *bytes;
-	
-	if (!PyBytes_Check(p))
+	Py_ssize_t max_print = 10;
+
+	if (!p || !PyBytes_Check(p))
 	{
 		printf("[ERROR] Invalid PyBytesObject\n");
 		return;
 	}
 
 	size = PyBytes_Size(p);
-	bytes = (unsigned char *)PyBytes_AsString(p);
+	PyObject *repr = PyObject_Repr(p);
+	const char *repr_str = PyUnicode_AsUTF8(repr);
 
 	printf("[.] bytes object info\n");
 	printf("  [.] size: %ld\n", size);
-	printf("  [.] trying string: %s\n", bytes);
+	printf("  [.] trying string: %s\n", repr_str);
+	printf("  [.] first %ld bytes:", size < max_print ? size : max_print);
 
-	printf("  [.] first %ld bytes:", (size < 10) ? size + 1 : 10);
-	for (i = 0; i < size && i < 10; i++)
-		printf(" %02x", bytes[i]);
+	for (i = 0; i < size && i < max_print; i++)
+	{
+		printf(" %02x", PyBytes_AS_STRING(p)[i] & 0xff);
+	}
+
 	printf("\n");
 }
+
 /**
  * print_python_float - Prints information about a Python float object
  * @p: Pointer to the Python object
@@ -69,18 +73,16 @@ void print_python_bytes(PyObject *p)
 void print_python_float(PyObject *p)
 {
 	double value;
-	const char *type_name;
 
-	if (!PyFloat_Check(p))
+	if (!p || !PyFloat_Check(p))
 	{
 		printf("[ERROR] Invalid PyFloatObject\n");
 		return;
 	}
 
 	value = PyFloat_AsDouble(p);
-	type_name = Py_TYPE(p)->tp_name;
 
 	printf("[.] float object info\n");
 	printf("  [.] value: %f\n", value);
-	printf("  [.] type: %s\n", type_name);
+	printf("  [.] type: %s\n", Py_TYPE(p)->tp_name);
 }
