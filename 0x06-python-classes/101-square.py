@@ -1,8 +1,11 @@
 #!/usr/bin/python3
+"""
+    A class representing a square.
+"""
+
+
 class Square:
     """
-    A class representing a square.
-
     Attributes:
         __size: Private instance attribute for the size of the square.
         __position: Private instance attribute for the position of the square.
@@ -15,10 +18,13 @@ class Square:
 
         Args:
             size: The size of the square (optional, default is 0).
-            position: The position of the square as a tuple of 2 positive integers (optional, default is (0, 0)).
+            position: The position of the square as a
+            tuple of 2 positive integers
+            (optional, default is (0, 0)).
 
         Raises:
-            TypeError: If size is not an integer, or position is not a tuple of 2 positive integers.
+            TypeError: If size is not an integer, or position is not
+            a tuple of 2 positive integers.
             ValueError: If size is less than 0.
 
         """
@@ -78,7 +84,8 @@ class Square:
             TypeError: If position is not a tuple of 2 positive integers.
 
         """
-        if not isinstance(value, tuple) or len(value) != 2 or not all(isinstance(x, int) and x >= 0 for x in value):
+        if not isinstance(value, tuple) or len(value) != 2 or
+        not all(isinstance(x, int) and x >= 0 for x in value):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
@@ -112,7 +119,8 @@ class Square:
         Returns a string representation of the square.
 
         Returns:
-            The square as a string with the character '#' in the desired format.
+            The square as a string with the character
+            '#' in the desired format.
 
         """
         result = ""

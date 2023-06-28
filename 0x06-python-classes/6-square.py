@@ -22,8 +22,10 @@ class Square:
             position: The position of the square (optional, default is (0, 0)).
 
         Raises:
-            TypeError: If size is not an integer, or position is not a tuple of 2 positive integers.
-            ValueError: If size is less than 0, or position contains negative values.
+            TypeError: If size is not an integer, or position is not
+            a tuple of 2 positive integers.
+            ValueError: If size is less than 0, or position contains
+            negative values.
 
         """
         self.size = size
@@ -104,7 +106,8 @@ class Square:
         Prints the square with the character '#' to stdout.
 
         If size is equal to 0, prints an empty line.
-        Adjusts the position by printing spaces before each row if position[1] > 0.
+        Adjusts the position by printing spaces before
+        each row if position[1] > 0.
 
         """
         if self.__size == 0:

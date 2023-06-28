@@ -5,9 +5,9 @@
 
 
 class Square:
-    """ 
+    """
     Attributes:
-        __size: Private instance attribute for
+        ___size: Private instance attribute for
         the size of the square.
 
     """

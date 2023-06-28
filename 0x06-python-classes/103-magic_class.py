@@ -1,13 +1,19 @@
 #!/usr/bin/python3
+"""
+    An import of math functions
+"""
+
 import math
+"""
+    A class that represents a magic circle with radius.
+"""
 
 
 class MagicClass:
     """
-    A class that represents a magic circle with radius.
-
-    Attributes:
+   Attributes:
         __radius (int or float): The radius of the circle.
+
     """
 
     def __init__(self, radius):

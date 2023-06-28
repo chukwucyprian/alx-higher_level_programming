@@ -1,13 +1,15 @@
 #!/usr/bin/python3
+"""
+    A class representing a node of a singly linked list.
+"""
+
+
 class Node:
     """
-    A class representing a node of a singly linked list.
-
-    Attributes:
+   Attributes:
         __data: Private instance attribute for the data stored in the node.
         __next_node: Private instance attribute for the reference to
         the next node.
-
     """
 
     def __init__(self, data, next_node=None):
