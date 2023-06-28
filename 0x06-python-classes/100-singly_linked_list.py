@@ -83,11 +83,12 @@ class Node:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
+"""
+    A class representing a singly linked list.
+"""
 
 class SinglyLinkedList:
     """
-    A class representing a singly linked list.
-
     Attributes:
         head: The first node of the linked list.
 
