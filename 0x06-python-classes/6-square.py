@@ -1,8 +1,12 @@
 #!/usr/bin/python3
+
+"""
+    A class representing a square.
+"""
+
+
 class Square:
     """
-    A class representing a square.
-
     Attributes:
         __size: Private instance attribute for the size of the square.
         __position: Private instance attribute for the position of the square.
