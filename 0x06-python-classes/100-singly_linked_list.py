@@ -5,7 +5,8 @@ class Node:
 
     Attributes:
         __data: Private instance attribute for the data stored in the node.
-        __next_node: Private instance attribute for the reference to the next node.
+        __next_node: Private instance attribute for the reference to
+        the next node.
 
     """
 
@@ -15,10 +16,12 @@ class Node:
 
         Args:
             data: The data to be stored in the node.
-            next_node: The reference to the next node (optional, default is None).
+            next_node: The reference to the next node
+            (optional, default is None).
 
         Raises:
-            TypeError: If data is not an integer, or next_node is not None or a Node object.
+            TypeError: If data is not an integer, or next_node is not None
+            or a Node object.
 
         """
         self.data = data
@@ -97,7 +100,8 @@ class SinglyLinkedList:
 
     def sorted_insert(self, value):
         """
-        Inserts a new Node into the correct sorted position in the list (increasing order).
+        Inserts a new Node into the correct sorted position in
+        the list (increasing order).
 
         Args:
             value: The value to be inserted into the linked list.
@@ -112,7 +116,8 @@ class SinglyLinkedList:
             self.head = new_node
         else:
             current = self.head
-            while current.next_node is not None and current.next_node.data < value:
+            while current.next_node is not None
+            and current.next_node.data < value:
                 current = current.next_node
             new_node.next_node = current.next_node
             current.next_node = new_node
