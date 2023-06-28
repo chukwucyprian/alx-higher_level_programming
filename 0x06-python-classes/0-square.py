@@ -3,7 +3,7 @@
 """ A class representing a square."""
 
 
-class square:
+class Square:
     """
     Attributes: None
 
