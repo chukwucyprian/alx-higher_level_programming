@@ -11,8 +11,8 @@ import math
 
 class MagicClass:
     """
-   Attributes:
-        __radius (int or float): The radius of the circle.
+        Attributes:
+           __radius (int or float): The radius of the circle.
 
     """
 

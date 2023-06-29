@@ -6,9 +6,10 @@
 
 class Square:
     """
-    Attributes:
-        __size: Private instance attribute for the size of the square.
-        __position: Private instance attribute for the position of the square.
+        Attributes:
+            __size: Private instance attribute for the size of the square.
+            __position: Private instance attribute for the position
+            of the square.
 
     """
 

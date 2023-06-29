@@ -6,7 +6,7 @@
 
 class Node:
     """
-   Attributes:
+    Attributes:
         __data: Private instance attribute for the data stored in the node.
         __next_node: Private instance attribute for the reference to
         the next node.
@@ -83,9 +83,11 @@ class Node:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
+
 """
     A class representing a singly linked list.
 """
+
 
 class SinglyLinkedList:
     """
