@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-#0-rectangle.py
 """A class that defines a rectangle."""
 
 
 class Rectangle:
     """
-    Attributes:
+     Attributes:
         length (float): The length of the rectangle.
         width (float): The width of the rectangle.
     """
