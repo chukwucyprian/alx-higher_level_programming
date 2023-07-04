@@ -3,12 +3,8 @@
     A class that defines a rectangle.
 """
 
-
 class Rectangle:
-    """
-    A class that defines a rectangle.
-    """
-
+   
     def __init__(self, width=0, height=0):
         """
         Initializes a Rectangle object.
@@ -75,3 +71,47 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
+
+    def area(self):
+        """
+        Calculates the area of the rectangle.
+
+        Returns:
+            int: The area of the rectangle.
+        """
+        return self.width * self.height
+
+    def perimeter(self):
+        """
+        Calculates the perimeter of the rectangle.
+
+        Returns:
+            int: The perimeter of the rectangle.
+        """
+        if self.width == 0 or self.height == 0:
+            return 0
+        return 2 * (self.width + self.height)
+
+    def __str__(self):
+        """
+        Returns a string representation of the rectangle.
+
+        Returns:
+            str: The string representation of the rectangle.
+        """
+        if self.width == 0 or self.height == 0:
+            return ""
+        rect_str = ""
+        for _ in range(self.height):
+            rect_str += "#" * self.width + "\n"
+        return rect_str[:-1]
+
+    def __repr__(self):
+        """
+        Returns a string representation of the rectangle for recreation.
+
+        Returns:
+            str: The string representation of the rectangle.
+        """
+        return f"Rectangle({self.width}, {self.height})"
+
