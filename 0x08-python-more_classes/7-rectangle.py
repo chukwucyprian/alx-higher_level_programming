@@ -11,8 +11,10 @@ class Rectangle:
     Attributes:
         width (int): The width of the rectangle.
         height (int): The height of the rectangle.
-        number_of_instances (int): The number of instances of the Rectangle class.
-        print_symbol (any): The symbol used for string representation of the rectangle.
+        number_of_instances (int): The number of instances of
+        the Rectangle class.
+        print_symbol (any): The symbol used for string representation
+        of the rectangle.
     """
 
     number_of_instances = 0
