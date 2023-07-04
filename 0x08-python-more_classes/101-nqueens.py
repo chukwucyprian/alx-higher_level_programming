@@ -17,55 +17,45 @@ def is_safe(board, row, col):
     """
     # Check if there is a queen in the same column
     for i in range(row):
-        if board[i][col] == 1:
+        if board[i] == col:
             return False
 
     # Check if there is a queen in the upper-left diagonal
-    i, j = row - 1, col - 1
-    while i >= 0 and j >= 0:
-        if board[i][j] == 1:
+    for i, j in enumerate(board[:row]):
+        if j == col - (row - i):
             return False
-        i -= 1
-        j -= 1
 
     # Check if there is a queen in the upper-right diagonal
-    i, j = row - 1, col + 1
-    while i >= 0 and j < len(board):
-        if board[i][j] == 1:
+    for i, j in enumerate(board[:row]):
+        if j == col + (row - i):
             return False
-        i -= 1
-        j += 1
 
     return True
 
 
-def solve_nqueens(board, row):
+def solve_nqueens(board, row, n):
     """
     Recursive function to solve the N Queens problem.
 
     Args:
         board (list): The current state of the chessboard.
         row (int): The current row index.
+        n (int): The size of the chessboard.
 
     Returns:
         None
     """
-    size = len(board)
-
-    if row == size:
+    if row == n:
         # Print the solution
-        for i in range(size):
-            print("[" + ", ".join(str(board[i][j]) for j in range(size)) + "]")
-        print()
-    else:
-        for col in range(size):
-            if is_safe(board, row, col):
-                board[row][col] = 1  # Place the queen
+        solution = [[i, board[i]] for i in range(n)]
+        print(solution)
+        return
 
-                # Recurse to the next row
-                solve_nqueens(board, row + 1)
-
-                board[row][col] = 0  # Backtrack and remove the queen
+    for col in range(n):
+        if is_safe(board, row, col):
+            board[row] = col  # Place the queen
+            solve_nqueens(board, row + 1, n)
+            board[row] = -1  # Backtrack and remove the queen
 
 
 def nqueens(n):
@@ -86,8 +76,8 @@ def nqueens(n):
         print("N must be at least 4")
         sys.exit(1)
 
-    board = [[0] * n for _ in range(n)]
-    solve_nqueens(board, 0)
+    board = [-1] * n
+    solve_nqueens(board, 0, n)
 
 
 # Check if the program is called with the correct number of arguments
