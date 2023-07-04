@@ -11,7 +11,12 @@ class Rectangle:
     Attributes:
         width (int): The width of the rectangle.
         height (int): The height of the rectangle.
+        number_of_instances (int): The number of instances of the Rectangle class.
+        print_symbol (any): The symbol used for string representation of the rectangle.
     """
+
+    number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """
@@ -23,6 +28,7 @@ class Rectangle:
         """
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -111,7 +117,7 @@ class Rectangle:
             return ""
         rect_str = ""
         for _ in range(self.height):
-            rect_str += "#" * self.width + "\n"
+            rect_str += str(self.print_symbol) * self.width + "\n"
         return rect_str[:-1]
 
     def __repr__(self):
@@ -122,3 +128,11 @@ class Rectangle:
             str: The string representation of the rectangle.
         """
         return f"Rectangle({self.width}, {self.height})"
+
+    def __del__(self):
+        """
+        Prints a goodbye message when the Rectangle object is deleted.
+        Decrements the number_of_instances attribute.
+        """
+        Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")
