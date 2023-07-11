@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-import sys
-import json
-""" A script that adds all arguments to a Python list,
+""" script that adds all arguments to a Python list,
     and then save them to a file:
 """
+import sys
+import json
 
 
 def save_to_json_file(my_obj, filename):
