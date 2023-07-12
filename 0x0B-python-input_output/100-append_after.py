@@ -2,7 +2,6 @@
 """ A function that inserts a line of text to a file, after each
     line containing a specific string
 """
-import os
 
 
 def append_after(
@@ -32,6 +31,3 @@ def append_after(
             temp_file.write(line)
             if search_string in line:
                 temp_file.write(new_string + '\n')
-
-    # Replace the original file with the modified one
-    os.replace(temp_filename, filename)
