@@ -3,7 +3,12 @@
 
 
 class BaseGeometry:
-    """Base class for geometry-related classes."""
+    """Base class for geometry-related classes.
+
+        Examples:
+    >>> import doctest
+    >>> doctest.testfile('7-base_geometry.txt')
+    """
 
     def area(self):
         """Compute the area of the geometry.
